@@ -7,7 +7,11 @@ class DoaAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(AppLocalizations.of(context)!.doa),
+      backgroundColor: Colors.blue[900],
+      title: Text(
+        AppLocalizations.of(context)!.doa,
+        style: const TextStyle(color: Colors.white),
+      ),
     );
   }
 
