@@ -1,10 +1,10 @@
-class Doa {
+class DoaDto {
   String title;
   String arabic;
   String latin;
   String translation;
 
-  Doa({
+  DoaDto({
     required this.title,
     required this.arabic,
     required this.latin,
