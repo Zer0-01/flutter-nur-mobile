@@ -39,6 +39,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   json_annotation: ^4.9.0
+  bloc: ^9.0.0
 
 dev_dependencies:
   flutter_test:
