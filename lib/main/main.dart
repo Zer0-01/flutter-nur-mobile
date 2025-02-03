@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nur_mobile/configuration/app_logger.dart';
 import 'package:flutter_nur_mobile/configuration/environment.dart';
+import 'package:flutter_nur_mobile/configuration/local_storage.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/bloc/doa_bloc.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/doa_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   AppLogger.configure(isProduction: false);
@@ -15,6 +16,10 @@ void main() {
   ProfileConstants.setEnvironment(Environment.dev);
 
   log.info("Starting App with env: {}", [Environment.dev.name]);
+
+  const defaultLanguage = "en";
+  AppLocalStorage().setStorage(StorageType.sharedPreferences);
+  await AppLocalStorage().save(StorageKeys.language.name, defaultLanguage);
   runApp(const MyApp());
 }
 
