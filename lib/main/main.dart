@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nur_mobile/configuration/app_logger.dart';
+import 'package:flutter_nur_mobile/configuration/environment.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/bloc/doa_bloc.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/doa_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,6 +11,10 @@ void main() {
 
   AppLogger.configure(isProduction: false);
   final log = AppLogger.getLogger("main.dart");
+
+  ProfileConstants.setEnvironment(Environment.dev);
+
+  log.info("Starting App with env: {}", [Environment.dev.name]);
   runApp(const MyApp());
 }
 
