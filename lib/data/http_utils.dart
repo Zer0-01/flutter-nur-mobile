@@ -38,4 +38,10 @@ class HttpUtils {
 
     return headerParameters;
   }
+
+  // static Future<http.Response> getRequest(String endpoint, {String? pathParams, Map<String, String>? queryParams}) async {
+  //   final http.Response response;
+
+  //   return response;
+  // }
 }
