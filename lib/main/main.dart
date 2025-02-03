@@ -6,6 +6,7 @@ import 'package:flutter_nur_mobile/configuration/local_storage.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/bloc/doa_bloc.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/doa_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_nur_mobile/routes/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,8 @@ void main() async {
   const defaultLanguage = "en";
   AppLocalStorage().setStorage(StorageType.sharedPreferences);
   await AppLocalStorage().save(StorageKeys.language.name, defaultLanguage);
+
+  AppRouter().setRouter(RouterType.goRouter);
   runApp(const MyApp());
 }
 
