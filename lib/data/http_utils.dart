@@ -25,4 +25,17 @@ class HttpUtils {
   static void addCustomHttpHeaders(String key, String value) {
     _customHttpHeaders[key] = value;
   }
+
+  static Future<Map<String, String>> headers() async {
+    Map<String, String> headerParameters = <String, String>{};
+
+    if (_customHttpHeaders.isNotEmpty) {
+      headerParameters.addAll(_customHttpHeaders);
+      _customHttpHeaders.clear();
+    } else {
+      headerParameters.addAll(_defaultHttpHeaders);
+    }
+
+    return headerParameters;
+  }
 }
