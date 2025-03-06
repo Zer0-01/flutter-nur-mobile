@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nur_mobile/routes/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
   final String language;
@@ -26,20 +27,25 @@ class App extends StatelessWidget {
   }
 
   ThemeData _buildLightTheme() => ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.light,
-      colorSchemeSeed: Colors.blueGrey);
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.green, brightness: Brightness.light),
+      );
 
   ThemeData _buildDarkTheme() => ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      primarySwatch: Colors.blueGrey);
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red, brightness: Brightness.dark));
 
-  MultiBlocProvider _buildMultiBlocProvider(ThemeData light, ThemeData dark) {
-    return MultiBlocProvider(
-        providers: const [],
-        child: MaterialApp.router(
-          routerConfig: _appRouter.config(),
-        ));
+  MaterialApp _buildMultiBlocProvider(ThemeData light, ThemeData dark) {
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: light,
+      darkTheme: dark,
+    );
   }
 }

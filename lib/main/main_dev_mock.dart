@@ -20,7 +20,7 @@ void main() async {
   AppLocalStorage().setStorage(StorageType.sharedPreferences);
   await AppLocalStorage().save(StorageKeys.language.name, defaultLanguage);
 
-  const initialTheme = AdaptiveThemeMode.dark;
+  const initialTheme = AdaptiveThemeMode.light;
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(App(language: defaultLanguage, initialTheme: initialTheme));

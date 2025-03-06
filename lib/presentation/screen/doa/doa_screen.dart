@@ -5,14 +5,24 @@ import 'package:flutter_nur_mobile/presentation/screen/doa/widgets/doa_app_bar_w
 import 'package:flutter_nur_mobile/presentation/screen/doa/widgets/doa_body_loading_widget.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/widgets/doa_body_widget.dart';
 
-class DoaScreen extends StatelessWidget {
+class DoaScreen extends StatefulWidget {
   const DoaScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<DoaScreen> createState() => _DoaScreenState();
+}
+
+class _DoaScreenState extends State<DoaScreen> {
+  @override
+  void initState() {
+    super.initState();
     context.read<DoaBloc>().add(const OnInit());
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: const DoaAppBarWidget(),
       body: BlocBuilder<DoaBloc, DoaState>(
         builder: (context, state) {
