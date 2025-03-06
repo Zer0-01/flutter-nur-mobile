@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: ^2.5.1
   adaptive_theme: ^3.6.0
   go_router: ^14.7.2
+  auto_route: ^9.3.0+1
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   json_serializable: ^6.9.0
+  build_runner: ^2.4.13
+  auto_route_generator: ^9.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

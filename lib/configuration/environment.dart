@@ -1,10 +1,12 @@
-enum Environment { dev, prod, test }
+enum Environment { dev_mock, dev, prod, test }
 
 class ProfileConstants {
   static Map<String, dynamic>? _config;
 
   static void setEnvironment(Environment env) {
     switch (env) {
+      case Environment.dev_mock:
+        _config = _Config.dev_mockConstants;
       case Environment.dev:
         _config = _Config.devConstants;
         break;
@@ -15,6 +17,10 @@ class ProfileConstants {
         _config = _Config.prodConstants;
         break;
     }
+  }
+
+  static bool get isMock {
+    return _config == _Config.dev_mockConstants;
   }
 
   static bool get isProduction {
@@ -36,6 +42,10 @@ class ProfileConstants {
 
 class _Config {
   static const api = "API";
+
+  static Map<String, dynamic> dev_mockConstants = {
+    api: "mock",
+  };
 
   static Map<String, dynamic> devConstants = {
     api: "mock",

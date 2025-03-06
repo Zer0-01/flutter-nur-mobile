@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_nur_mobile/configuration/app_logger.dart';
@@ -6,7 +7,6 @@ import 'package:flutter_nur_mobile/configuration/local_storage.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/bloc/doa_bloc.dart';
 import 'package:flutter_nur_mobile/presentation/screen/doa/doa_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_nur_mobile/routes/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ void main() async {
   AppLocalStorage().setStorage(StorageType.sharedPreferences);
   await AppLocalStorage().save(StorageKeys.language.name, defaultLanguage);
 
-  AppRouter().setRouter(RouterType.goRouter);
+  const initialTheme = AdaptiveThemeMode.dark;
   runApp(const MyApp());
 }
 

@@ -5,9 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "flutter_nur_mobile --dev_mock (debug)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main/main_dev_mock.dart",
+            "flutterMode": "debug"
+        },
+        {
             "name": "flutter_nur_mobile",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "lib/main/main.dart"
         },
         {
             "name": "flutter_nur_mobile (profile mode)",
