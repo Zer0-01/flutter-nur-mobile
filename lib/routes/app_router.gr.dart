@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -16,10 +17,7 @@ import 'package:flutter_nur_mobile/presentation/screen/doa/doa_setup_screen.dart
 /// [_i1.DoaSetupScreen]
 class DoaSetupRoute extends _i2.PageRouteInfo<void> {
   const DoaSetupRoute({List<_i2.PageRouteInfo>? children})
-      : super(
-          DoaSetupRoute.name,
-          initialChildren: children,
-        );
+    : super(DoaSetupRoute.name, initialChildren: children);
 
   static const String name = 'DoaSetupRoute';
 
