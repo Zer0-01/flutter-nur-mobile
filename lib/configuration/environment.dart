@@ -48,7 +48,7 @@ class _Config {
   };
 
   static Map<String, dynamic> devConstants = {
-    api: "mock",
+    api: "http://localhost:3001",
   };
 
   static Map<String, dynamic> testConstants = {

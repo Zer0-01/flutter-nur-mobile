@@ -26,12 +26,14 @@ class _DoaScreenState extends State<DoaScreen> {
       appBar: const DoaAppBarWidget(),
       body: BlocBuilder<DoaBloc, DoaState>(
         builder: (context, state) {
-          if (state is DoaLoading) {
-            return const DoaBodyLoadingWidget();
-          } else if (state is DoaSuccess) {
-            return const DoaBodyWidget();
-          } else {
-            return Container();
+          switch (state.status) {
+            case DoaStatus.initial:
+            case DoaStatus.loading:
+              return const CircularProgressIndicator();
+            case DoaStatus.error:
+              return Text("Error");
+            case DoaStatus.success:
+              return Text("SUccess");
           }
         },
       ),

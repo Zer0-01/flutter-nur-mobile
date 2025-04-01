@@ -1,26 +1,15 @@
 part of 'doa_bloc.dart';
 
+enum DoaStatus { initial, loading, success, error }
+
 class DoaState extends Equatable {
-  const DoaState();
+  final DoaStatus status;
+  const DoaState({this.status = DoaStatus.initial});
+
+  DoaState copyWith({DoaStatus? status}) {
+    return DoaState(status: status ?? this.status);
+  }
 
   @override
-  List<Object?> get props => [];
-}
-
-class DoaInitial extends DoaState {
-  const DoaInitial();
-  @override
-  List<Object?> get props => [];
-}
-
-class DoaLoading extends DoaState {
-  const DoaLoading();
-  @override
-  List<Object?> get props => [];
-}
-
-class DoaSuccess extends DoaState {
-  const DoaSuccess();
-  @override
-  List<Object?> get props => [];
+  List<Object?> get props => [status];
 }

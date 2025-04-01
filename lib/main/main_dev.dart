@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_nur_mobile/configuration/app_logger.dart';
 import 'package:flutter_nur_mobile/configuration/environment.dart';
 import 'package:flutter_nur_mobile/configuration/local_storage.dart';
+import 'package:flutter_nur_mobile/data/dio_utils.dart';
 import 'package:flutter_nur_mobile/main/app.dart';
 
 void main() async {
@@ -15,6 +16,9 @@ void main() async {
   ProfileConstants.setEnvironment(Environment.dev_mock);
 
   log.info("Starting App with env: {}", [Environment.dev_mock.name]);
+
+  DioUtils dioUtils = DioUtils();
+  dioUtils.configureDio(baseUrl: ProfileConstants.api);
 
   const defaultLanguage = "en";
   AppLocalStorage().setStorage(StorageType.sharedPreferences);
