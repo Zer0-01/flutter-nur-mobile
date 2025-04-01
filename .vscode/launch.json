@@ -12,10 +12,11 @@
             "flutterMode": "debug"
         },
         {
-            "name": "flutter_nur_mobile",
+            "name": "flutter_nur_mobile --dev (debug)",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main/main.dart"
+            "program": "lib/main/main_dev.dart",
+            "flutterMode": "debug"
         },
         {
             "name": "flutter_nur_mobile (profile mode)",
